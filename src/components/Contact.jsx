@@ -15,9 +15,7 @@ const Contact = () => {
         reset,
         formState: { errors },
         setError,
-    } = useForm({
-        mode: "onTouched",
-    });
+    } = useForm({ mode: "onTouched" });
 
     const onSubmit = async (data) => {
         setLoading(true);
@@ -45,66 +43,63 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="w-full py-14 lg:py-20">
+        <section id="contact" className="w-full bg-slate-950 py-16 text-white lg:py-20">
             <Container>
-                <div className="mx-auto max-w-5xl rounded-2xl border border-slate-200/80 bg-white/60 p-6 shadow-lg backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/40 sm:p-8 lg:p-10">
-                    {/* Header */}
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-8">
-                        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-400">Get In Touch</p>
+                <div className="mb-10">
+                    <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-indigo-400">GET IN TOUCH</p>
+                    <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Let's Work Together</h2>
+                    <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-400 sm:text-base">Have a project, opportunity, or just want to connect? Send me a message and I'll get back to you.</p>
+                </div>
 
-                        <h2 className="font-playfair text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Contact Me</h2>
+                <motion.div
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 shadow-xl sm:px-4 lg:px-4"
+                >
+                    <AnimatePresence mode="wait">
+                        {success && (
+                            <motion.div
+                                key="success"
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                className="mb-6 rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-4 py-3"
+                            >
+                                <p className="text-sm font-medium text-emerald-400">Your message has been sent successfully.</p>
+                            </motion.div>
+                        )}
 
-                        <div className="mt-3 h-1 w-14 rounded-full bg-indigo-600" />
-                    </motion.div>
-
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                        <AnimatePresence mode="wait">
-                            {success && (
-                                <motion.div
-                                    key="success"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    className="rounded-lg border border-green-500/30 bg-green-500/10 px-4 py-3"
-                                >
-                                    <p className="text-sm font-semibold text-green-500">Your message has been sent successfully!</p>
-                                </motion.div>
-                            )}
-
-                            {errors.root && (
-                                <motion.div
-                                    key="error"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3"
-                                >
-                                    <p className="text-sm font-semibold text-red-500">{errors.root.message}</p>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-
-                        {/* Name + Email */}
-                        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                        {errors.root && (
+                            <motion.div
+                                key="error"
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                className="mb-6 rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3"
+                            >
+                                <p className="text-sm font-medium text-red-400">{errors.root.message}</p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                             <div>
-                                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">Name</label>
-
+                                <label className="mb-2 block text-sm font-medium text-slate-300">Name</label>
                                 <input
                                     {...register("name", {
                                         required: "Name is required",
                                     })}
                                     type="text"
-                                    placeholder="Your Name"
+                                    placeholder="Your name"
                                     disabled={loading}
-                                    className="w-full rounded-lg border border-slate-300 bg-white/70 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white"
+                                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
                                 />
-
-                                {errors.name && <p className="mt-2 text-xs font-medium text-red-500">{errors.name.message}</p>}
+                                {errors.name && <p className="mt-2 text-xs font-medium text-red-400">{errors.name.message}</p>}
                             </div>
-
                             <div>
-                                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">Email</label>
-
+                                <label className="mb-2 block text-sm font-medium text-slate-300">Email</label>
                                 <input
                                     {...register("email", {
                                         required: "Email is required",
@@ -114,51 +109,40 @@ const Contact = () => {
                                         },
                                     })}
                                     type="email"
-                                    placeholder="Your Email"
+                                    placeholder="you@example.com"
                                     disabled={loading}
-                                    className="w-full rounded-lg border border-slate-300 bg-white/70 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white"
+                                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
                                 />
-
-                                {errors.email && <p className="mt-2 text-xs font-medium text-red-500">{errors.email.message}</p>}
+                                {errors.email && <p className="mt-2 text-xs font-medium text-red-400">{errors.email.message}</p>}
                             </div>
                         </div>
-
-                        {/* Subject */}
                         <div>
-                            <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">Subject</label>
-
+                            <label className="mb-2 block text-sm font-medium text-slate-300">Subject</label>
                             <input
                                 {...register("subject", {
                                     required: "Subject is required",
                                 })}
                                 type="text"
-                                placeholder="Subject"
+                                placeholder="What would you like to discuss?"
                                 disabled={loading}
-                                className="w-full rounded-lg border border-slate-300 bg-white/70 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white"
+                                className="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
                             />
-
-                            {errors.subject && <p className="mt-2 text-xs font-medium text-red-500">{errors.subject.message}</p>}
+                            {errors.subject && <p className="mt-2 text-xs font-medium text-red-400">{errors.subject.message}</p>}
                         </div>
-
-                        {/* Message */}
                         <div>
-                            <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">Message</label>
-
+                            <label className="mb-2 block text-sm font-medium text-slate-300">Message</label>
                             <textarea
                                 {...register("message", {
                                     required: "Message cannot be empty",
                                 })}
-                                placeholder="Your Message"
+                                placeholder="Write your message..."
                                 rows={6}
                                 disabled={loading}
-                                className="w-full resize-none rounded-lg border border-slate-300 bg-white/70 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white"
+                                className="w-full resize-none rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
                             />
-
-                            {errors.message && <p className="mt-2 text-xs font-medium text-red-500">{errors.message.message}</p>}
+                            {errors.message && <p className="mt-2 text-xs font-medium text-red-400">{errors.message.message}</p>}
                         </div>
-
-                        {/* Submit */}
-                        <div className="pt-1">
+                        <div className="pt-2">
                             <button
                                 type="submit"
                                 disabled={loading}
@@ -168,7 +152,7 @@ const Contact = () => {
                             </button>
                         </div>
                     </form>
-                </div>
+                </motion.div>
             </Container>
         </section>
     );
