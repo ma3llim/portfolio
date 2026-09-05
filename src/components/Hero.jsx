@@ -1,62 +1,86 @@
 import { motion } from "framer-motion";
 import Container from "./Container";
-import { TypeAnimation } from "react-type-animation";
 import userAvatar from "../assets/userAvatar.webp";
-import { FaCloudDownloadAlt, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaCloudDownloadAlt, FaGithub, FaInstagram, FaLinkedin, FaArrowRight, FaWhatsapp } from "react-icons/fa";
 import resume from "/mohd_sameer.pdf";
 
 const Hero = () => {
     return (
-        <div className="w-full bg-gradient-to-r from-purple-900 via-indigo-900 to-blue-900 text-white backdrop-blur-md" id="home">
-            <div className="w-full bg-black/50">
-                <Container>
-                    <div className="flex flex-col-reverse md:flex-row items-center justify-center text-center lg:text-start gap-8 lg:gap-16 py-12 md:py-16">
-                        <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="space-y-4 grow">
-                            <h2 className="text-2xl md:text-3xl font-semibold font-playfair flex items-center justify-center lg:justify-start gap-3">
-                                <span>Hi there</span>
-                                <span role="img" aria-label="wave" className="waving-hand text-4xl">
-                                    👋
-                                </span>
-                                <span>I'm</span>
-                            </h2>
-                            <TypeAnimation
-                                sequence={["Mohd Sameer", 2000, "Mern Stack Developer", 2000, "Full-Stack Web Developer", 2000]}
-                                wrapper="h1"
-                                speed={50}
-                                repeat={Infinity}
-                                className="text-2xl md:text-5xl font-bold font-eagle-lake"
-                            />
-                            <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl">
-                                A passionate developer building scalable, high-performance, and user-friendly web applications using the MERN stack. I focus on clean code and modern UI to deliver
-                                polished digital experiences.
+        <section id="home" className="relative w-full overflow-hidden bg-slate-950 text-white">
+            <div className="absolute inset-0">
+                <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl" />
+                <div className="absolute -bottom-40 -right-32 h-96 w-96 rounded-full bg-purple-600/20 blur-3xl" />
+                <div
+                    className="absolute inset-0 opacity-[0.04]"
+                    style={{
+                        backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+                        backgroundSize: "48px 48px",
+                    }}
+                />
+            </div>
+            <Container>
+                <div className="relative flex min-h-[calc(100vh-80px)] items-center py-20 md:py-24">
+                    <div className="grid w-full items-center gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+                        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
+                            <div className="mb-6 flex items-center gap-3">
+                                <span className="h-px w-10 bg-indigo-400" />
+                                <span className="text-xs font-semibold tracking-[0.2em] text-indigo-300">JAVA FULL STACK DEVELOPER</span>
+                            </div>
+                            <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+                                Building reliable
+                                <span className="block bg-gradient-to-r from-indigo-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">software for the web.</span>
+                            </h1>
+                            <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-[17px]">
+                                I build full-stack applications using Java, Spring Boot, and React, with a focus on clean architecture, scalable backend systems, and modern user experiences.
                             </p>
-                            <div className="flex flex-wrap space-x-4 items-center justify-center lg:justify-start">
+                            <div className="mt-9 flex flex-wrap items-center gap-4">
+                                <a
+                                    href="#projects"
+                                    className="group inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 font-semibold text-white shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-indigo-500"
+                                >
+                                    View My Work
+                                    <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+                                </a>
                                 <a
                                     href={resume}
                                     target="_blank"
-                                    aria-label="View Resume"
-                                    className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition duration-200 shadow-md"
+                                    rel="noopener noreferrer"
+                                    aria-label="Download Resume"
+                                    className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900/60 px-6 py-3 font-semibold text-slate-200 backdrop-blur-sm transition-all duration-300 hover:border-indigo-400 hover:text-white"
                                 >
-                                    Resume <FaCloudDownloadAlt className="w-5 h-5" />
+                                    Resume
+                                    <FaCloudDownloadAlt className="h-5 w-5" />
                                 </a>
+                            </div>
+                            <div className="mt-10 flex items-center gap-5">
+                                <span className="text-sm text-slate-500">Connect</span>
+                                <span className="h-px w-8 bg-slate-700" />
                                 <a
                                     href="https://www.linkedin.com/in/mohdsameer-dev/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="LinkedIn"
-                                    className="w-10 h-10 flex items-center justify-center rounded-full bg-[#0077b5] hover:scale-110 transition-transform duration-300 shadow-lg"
+                                    className="text-slate-400 transition-colors duration-300 hover:text-white"
                                 >
-                                    <FaLinkedin className="w-6 h-6 text-white" />
+                                    <FaLinkedin className="h-5 w-5" />
                                 </a>
-
+                                <a
+                                    href="https://wa.me/+919885191161"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Whatsapp"
+                                    className="text-slate-400 transition-colors duration-300 hover:text-white"
+                                >
+                                    <FaWhatsapp className="h-5 w-5" />
+                                </a>
                                 <a
                                     href="https://github.com/ma3llim/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="GitHub"
-                                    className="w-10 h-10 flex items-center justify-center rounded-full bg-[#333] hover:scale-110 transition-transform duration-300 shadow-lg"
+                                    className="text-slate-400 transition-colors duration-300 hover:text-white"
                                 >
-                                    <FaGithub className="w-6 h-6 text-white" />
+                                    <FaGithub className="h-5 w-5" />
                                 </a>
 
                                 <a
@@ -64,29 +88,38 @@ const Hero = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Instagram"
-                                    className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 hover:scale-110 transition-transform duration-300 shadow-lg"
+                                    className="text-slate-400 transition-colors duration-300 hover:text-white"
                                 >
-                                    <FaInstagram className="w-6 h-6 text-white" />
+                                    <FaInstagram className="h-5 w-5" />
                                 </a>
                             </div>
                         </motion.div>
+
                         <motion.div
-                            initial={{ opacity: 0, x: +50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="w-full max-w-xs mx-auto md:mx-0 flex justify-center md:justify-end"
+                            initial={{ opacity: 0, scale: 0.9, x: 30 }}
+                            animate={{ opacity: 1, scale: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.15 }}
+                            className="flex justify-center lg:justify-end"
                         >
-                            <img
-                                loading="lazy"
-                                src={userAvatar}
-                                alt="Portrait of Mohd Sameer"
-                                className="w-40 h-40 md:w-64 md:h-64 object-cover rounded-full border-4 border-white shadow-xl"
-                            />
+                            <div className="relative">
+                                <div className="relative overflow-hidden rounded-[1.75rem] border border-slate-700 bg-slate-900 p-2 shadow-2xl shadow-indigo-950/40">
+                                    <img src={userAvatar} alt="Portrait of Mohd Sameer" className="h-72 w-72 rounded-[1.35rem] object-cover sm:h-80 sm:w-80 lg:h-[380px] lg:w-[380px]" />
+                                    <div className="absolute inset-x-2 bottom-2 rounded-b-[1.35rem] bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent p-6 pt-20">
+                                        <p className="text-sm font-medium text-slate-300">Software Developer</p>
+                                        <p className="mt-1 text-lg font-semibold">Java • Spring Boot • React</p>
+                                    </div>
+                                </div>
+
+                                <div className="absolute -bottom-5 -left-5 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/95 px-4 py-2.5 shadow-xl backdrop-blur-md">
+                                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/50" />
+                                    <span className="text-sm font-medium text-slate-300">Available to connect</span>
+                                </div>
+                            </div>
                         </motion.div>
                     </div>
-                </Container>
-            </div>
-        </div>
+                </div>
+            </Container>
+        </section>
     );
 };
 
