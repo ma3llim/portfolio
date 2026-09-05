@@ -155,7 +155,9 @@ const ProjectCard = ({ project }) => {
                                 <FaTimes className="h-4 w-4" />
                             </button>
 
-                            <video src={project.video} controls autoPlay playsInline className="block max-h-[80vh] w-full bg-black object-contain" />
+                            <div className="w-full overflow-hidden bg-black">
+                                <video src={project.video} controls autoPlay playsInline loop className="block w-full h-auto" />
+                            </div>
                         </motion.div>
                     </motion.div>
                 )}

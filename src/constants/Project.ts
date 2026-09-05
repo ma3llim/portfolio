@@ -1,7 +1,7 @@
 import { FaJava, FaReact, FaDocker, FaAws } from "react-icons/fa";
 import { SiSpringboot, SiPostgresql, SiTypescript, SiGithubactions } from "react-icons/si";
 import ecommerceImage from "../assets/projects/ecommerce/home.webp";
-import ecommerceVideo from "../assets/projects/ecommerce/home.webp";
+import ecommerceVideo from "../assets/projects/ecommerce/project-demo.mp4";
 
 const projects = [
     {
