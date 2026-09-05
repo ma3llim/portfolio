@@ -1,12 +1,12 @@
 import Header from "./components/Header";
-import Project from "./components/Project";
-import Education from "./components/Education";
+import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Skills from "./components/Skills";
 import ReactGA from "react-ga4";
 import { useEffect } from "react";
+import Projects from "./components/Projects";
 
 const App = () => {
     useEffect(() => {
@@ -20,8 +20,8 @@ const App = () => {
                 <Hero />
             </section>
             <Skills />
-            <Project />
-            <Education />
+            <Projects />
+            <Experience />
             <Contact />
             <Footer />
         </div>

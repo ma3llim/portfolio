@@ -8,26 +8,33 @@ import firebaseDb from "../services/firebase";
 const Contact = () => {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
+
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors },
         setError,
-    } = useForm({ mode: "onTouched" });
+    } = useForm({
+        mode: "onTouched",
+    });
 
     const onSubmit = async (data) => {
         setLoading(true);
         setSuccess(false);
+
         try {
             await addDoc(collection(firebaseDb, "contacts"), {
                 ...data,
                 createdAt: Timestamp.now(),
             });
+
             reset();
             setSuccess(true);
         } catch (error) {
-            setError("root", { message: error?.message });
+            setError("root", {
+                message: error?.message || "Something went wrong. Please try again.",
+            });
         } finally {
             setLoading(false);
 
@@ -38,19 +45,19 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="w-full pb-10">
+        <section id="contact" className="w-full py-14 lg:py-20">
             <Container>
-                <div className="max-w-7xl mx-auto bg-white/10 p-8 rounded-xl shadow-lg backdrop-blur">
-                    <motion.h2
-                        className="text-3xl lg:text-4xl font-extrabold mb-5 underline underline-offset-4 font-playfair text-center md:text-start"
-                        initial={{ opacity: 0, y: -20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true }}
-                    >
-                        Contact Me
-                    </motion.h2>
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+                <div className="mx-auto max-w-5xl rounded-2xl border border-slate-200/80 bg-white/60 p-6 shadow-lg backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/40 sm:p-8 lg:p-10">
+                    {/* Header */}
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-8">
+                        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-400">Get In Touch</p>
+
+                        <h2 className="font-playfair text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Contact Me</h2>
+
+                        <div className="mt-3 h-1 w-14 rounded-full bg-indigo-600" />
+                    </motion.div>
+
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                         <AnimatePresence mode="wait">
                             {success && (
                                 <motion.div
@@ -58,10 +65,9 @@ const Contact = () => {
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -10 }}
-                                    transition={{ duration: 0.4 }}
-                                    className="w-full my-4 bg-green-500 text-center rounded-md border border-green-600 py-3 px-4"
+                                    className="rounded-lg border border-green-500/30 bg-green-500/10 px-4 py-3"
                                 >
-                                    <h4 className="text-white font-bold text-sm">Your Message Has Been Sent!</h4>
+                                    <p className="text-sm font-semibold text-green-500">Your message has been sent successfully!</p>
                                 </motion.div>
                             )}
 
@@ -71,64 +77,96 @@ const Contact = () => {
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -10 }}
-                                    transition={{ duration: 0.4 }}
-                                    className="w-full my-4 bg-red-500 text-center rounded-md border border-red-600 py-3 px-4"
+                                    className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3"
                                 >
-                                    <h4 className="text-white font-bold text-sm">{errors.root.message}</h4>
+                                    <p className="text-sm font-semibold text-red-500">{errors.root.message}</p>
                                 </motion.div>
                             )}
                         </AnimatePresence>
-                        <div className="flex flex-wrap md:flex-nowrap gap-4">
-                            <div className="w-full md:flex-1">
+
+                        {/* Name + Email */}
+                        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                            <div>
+                                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">Name</label>
+
                                 <input
-                                    {...register("name", { required: "Name Is Required" })}
+                                    {...register("name", {
+                                        required: "Name is required",
+                                    })}
                                     type="text"
                                     placeholder="Your Name"
                                     disabled={loading}
-                                    className="w-full p-3 rounded bg-slate-900 border border-white/20 focus:outline-none"
+                                    className="w-full rounded-lg border border-slate-300 bg-white/70 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white"
                                 />
-                                {errors.name && <p className="text-red-500 font-bold mt-2 pl-1">{errors.name.message}</p>}
+
+                                {errors.name && <p className="mt-2 text-xs font-medium text-red-500">{errors.name.message}</p>}
                             </div>
-                            <div className="w-full md:flex-1">
+
+                            <div>
+                                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">Email</label>
+
                                 <input
                                     {...register("email", {
                                         required: "Email is required",
                                         pattern: {
                                             value: /^\S+@\S+$/i,
-                                            message: "Invalid Email Format",
+                                            message: "Invalid email format",
                                         },
                                     })}
                                     type="email"
-                                    disabled={loading}
                                     placeholder="Your Email"
-                                    className="w-full p-3 rounded bg-slate-900 border border-white/20 focus:outline-none"
+                                    disabled={loading}
+                                    className="w-full rounded-lg border border-slate-300 bg-white/70 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white"
                                 />
-                                {errors.email && <p className="text-red-500 font-bold mt-2 pl-1">{errors.email.message}</p>}
+
+                                {errors.email && <p className="mt-2 text-xs font-medium text-red-500">{errors.email.message}</p>}
                             </div>
                         </div>
-                        <div className="w-full">
+
+                        {/* Subject */}
+                        <div>
+                            <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">Subject</label>
+
                             <input
-                                {...register("subject", { required: "Subject Is Required" })}
+                                {...register("subject", {
+                                    required: "Subject is required",
+                                })}
                                 type="text"
                                 placeholder="Subject"
                                 disabled={loading}
-                                className="w-full p-3 rounded bg-slate-900 border border-white/20 focus:outline-none"
+                                className="w-full rounded-lg border border-slate-300 bg-white/70 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white"
                             />
-                            {errors.subject && <p className="text-red-500 font-bold mt-2 pl-1">{errors.subject.message}</p>}
+
+                            {errors.subject && <p className="mt-2 text-xs font-medium text-red-500">{errors.subject.message}</p>}
                         </div>
-                        <div className="w-full">
+
+                        {/* Message */}
+                        <div>
+                            <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">Message</label>
+
                             <textarea
-                                {...register("message", { required: "Message Cannot Be Empty" })}
+                                {...register("message", {
+                                    required: "Message cannot be empty",
+                                })}
                                 placeholder="Your Message"
-                                rows="5"
+                                rows={6}
                                 disabled={loading}
-                                className="w-full p-3 rounded bg-slate-900 border border-white/20 focus:outline-none"
+                                className="w-full resize-none rounded-lg border border-slate-300 bg-white/70 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white"
                             />
-                            {errors.message && <p className="text-red-500 font-bold mt-2 pl-1">{errors.message.message}</p>}
+
+                            {errors.message && <p className="mt-2 text-xs font-medium text-red-500">{errors.message.message}</p>}
                         </div>
-                        <button type="submit" className="w-40 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold transition" disabled={loading}>
-                            {loading ? "Sending..." : "Send Message"}
-                        </button>
+
+                        {/* Submit */}
+                        <div className="pt-1">
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="inline-flex min-w-36 items-center justify-center rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+                            >
+                                {loading ? "Sending..." : "Send Message"}
+                            </button>
+                        </div>
                     </form>
                 </div>
             </Container>
