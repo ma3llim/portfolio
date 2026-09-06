@@ -34,23 +34,15 @@ const TimelineItem = ({ title, company, date, description }) => (
 
 const Experience = () => {
     return (
-        <section id="experience" className="w-full bg-slate-950 py-16 text-white lg:py-20">
+        <section id="experience" className="w-full bg-slate-950 py-8 text-white lg:py-10">
             <Container>
-                <div className="mx-auto max-w-4xl">
-                    <div className="mb-10">
-                        <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-indigo-400">EXPERIENCE</p>
-
-                        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Professional Experience</h2>
-
-                        <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
-                            Experience building and contributing to real-world web applications across frontend and backend development.
-                        </p>
-                    </div>
-                    <div>
-                        {data.experience.map((experience) => (
-                            <TimelineItem key={experience.title} title={experience.title} company={experience.company} date={experience.date} description={experience.description} />
-                        ))}
-                    </div>
+                <div className="mb-10">
+                    <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Professional Experience</h2>
+                </div>
+                <div>
+                    {data.experience.map((experience) => (
+                        <TimelineItem key={experience.title} title={experience.title} company={experience.company} date={experience.date} description={experience.description} />
+                    ))}
                 </div>
             </Container>
         </section>

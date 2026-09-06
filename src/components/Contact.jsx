@@ -43,7 +43,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="w-full bg-slate-950 py-16 text-white lg:py-20">
+        <section id="contact" className="w-full bg-slate-950 py-8 text-white lg:py-10">
             <Container>
                 <div className="mb-10">
                     <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-indigo-400">GET IN TOUCH</p>
@@ -79,7 +79,7 @@ const Contact = () => {
                                 exit={{ opacity: 0, y: -10 }}
                                 className="mb-6 rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3"
                             >
-                                <p className="text-sm font-medium text-red-400">{errors.root.message}</p>
+                                <p className="text-sm font-medium text-red-500">{errors.root.message}</p>
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -96,7 +96,7 @@ const Contact = () => {
                                     disabled={loading}
                                     className="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
                                 />
-                                {errors.name && <p className="mt-2 text-xs font-medium text-red-400">{errors.name.message}</p>}
+                                {errors.name && <p className="mt-2 text-xs font-medium text-red-500">{errors.name.message}</p>}
                             </div>
                             <div>
                                 <label className="mb-2 block text-sm font-medium text-slate-300">Email</label>
@@ -113,7 +113,7 @@ const Contact = () => {
                                     disabled={loading}
                                     className="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
                                 />
-                                {errors.email && <p className="mt-2 text-xs font-medium text-red-400">{errors.email.message}</p>}
+                                {errors.email && <p className="mt-2 text-xs font-medium text-red-500">{errors.email.message}</p>}
                             </div>
                         </div>
                         <div>
@@ -127,7 +127,7 @@ const Contact = () => {
                                 disabled={loading}
                                 className="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
                             />
-                            {errors.subject && <p className="mt-2 text-xs font-medium text-red-400">{errors.subject.message}</p>}
+                            {errors.subject && <p className="mt-2 text-xs font-medium text-red-500">{errors.subject.message}</p>}
                         </div>
                         <div>
                             <label className="mb-2 block text-sm font-medium text-slate-300">Message</label>
@@ -140,7 +140,7 @@ const Contact = () => {
                                 disabled={loading}
                                 className="w-full resize-none rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
                             />
-                            {errors.message && <p className="mt-2 text-xs font-medium text-red-400">{errors.message.message}</p>}
+                            {errors.message && <p className="mt-2 text-xs font-medium text-red-500">{errors.message.message}</p>}
                         </div>
                         <div className="pt-2">
                             <button
