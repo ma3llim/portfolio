@@ -24,7 +24,7 @@ const Footer = () => {
                                 href="https://wa.me/+919885191161"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Whatsapp"
+                                aria-label="WhatsApp"
                                 className="text-slate-400 transition-colors duration-300 hover:text-white"
                             >
                                 <FaWhatsapp className="h-5 w-5" />
