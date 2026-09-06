@@ -1,4 +1,4 @@
-import { FaArrowUp, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaArrowUp, FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Container from "./Container";
 import { Link } from "react-scroll";
@@ -16,36 +16,37 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="LinkedIn"
-                                className="w-8 h-8 flex items-center justify-center rounded-full bg-[#0077b5] hover:scale-110 transition-transform duration-300 shadow-lg"
+                                className="text-slate-400 transition-colors duration-300 hover:text-white"
                             >
-                                <FaLinkedin className="w-4 h-4 text-white" />
+                                <FaLinkedin className="h-5 w-5" />
+                            </a>
+                            <a
+                                href="https://wa.me/+919885191161"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Whatsapp"
+                                className="text-slate-400 transition-colors duration-300 hover:text-white"
+                            >
+                                <FaWhatsapp className="h-5 w-5" />
                             </a>
                             <a
                                 href="https://github.com/ma3llim/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="GitHub"
-                                className="w-8 h-8 flex items-center justify-center rounded-full bg-[#333] hover:scale-110 transition-transform duration-300 shadow-lg"
+                                className="text-slate-400 transition-colors duration-300 hover:text-white"
                             >
-                                <FaGithub className="w-4 h-4 text-white" />
+                                <FaGithub className="h-5 w-5" />
                             </a>
+
                             <a
                                 href="https://www.instagram.com/ma_3llim_007/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Instagram"
-                                className="w-8 h-8 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 hover:scale-110 transition-transform duration-300 shadow-lg"
+                                className="text-slate-400 transition-colors duration-300 hover:text-white"
                             >
-                                <FaInstagram className="w-4 h-4 text-white" />
-                            </a>
-                            <a
-                                href="https://x.com/Ma_3llim_007"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="X (formerly Twitter)"
-                                className="w-8 h-8 flex items-center justify-center rounded-full bg-gradient-to-br from-black via-gray-800 to-black hover:scale-110 transition-transform duration-300 shadow-lg"
-                            >
-                                <FaXTwitter className="w-4 h-4 text-white" />
+                                <FaInstagram className="h-5 w-5" />
                             </a>
                         </div>
                         <p className="text-sm md:text-base px-4">&copy; {new Date().getFullYear()} Mohd Sameer. All Rights Reserved.</p>
