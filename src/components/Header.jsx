@@ -11,7 +11,6 @@ const Header = () => {
             <div className="fixed top-0 left-0 right-0 z-50 py-2 bg-indigo-900/80 backdrop-blur-md border-b border-white/10 transition-all duration-300 shadow-xl">
                 <Container>
                     <div className="grid grid-cols-2 items-center">
-                        {/* Logo Section */}
                         <Link to="home" href="#home" smooth={true} duration={500} className="w-[160px] h-[40px] flex items-center cursor-pointer">
                             <img className="w-[250px] h-[150px] object-contain" src="logo.svg" alt="sameerfolio Logo" />
                         </Link>
