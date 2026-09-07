@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import Container from "./Container";
 import userAvatar from "../assets/userAvatar.webp";
-import { FaCloudDownloadAlt, FaGithub, FaInstagram, FaLinkedin, FaArrowRight, FaWhatsapp } from "react-icons/fa";
-import resume from "/mohd_sameer.pdf";
+import { FaCloudDownloadAlt, FaGithub, FaInstagram, FaLinkedin, FaArrowRight, FaWhatsapp, FaTwitter } from "react-icons/fa";
+const resume = "https://res.cloudinary.com/mohdsameer/image/upload/v1788764758/mohd_sameer_resume.pdf";
 
 const Hero = () => {
     return (
@@ -84,13 +84,13 @@ const Hero = () => {
                                     <FaGithub className="h-5 w-5" />
                                 </a>
                                 <a
-                                    href="https://www.instagram.com/ma_3llim_007/"
+                                    href="https://x.com/Ma_3llim_007"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Instagram"
+                                    aria-label="X/Twitter"
                                     className="text-slate-400 transition-colors duration-300 hover:text-white"
                                 >
-                                    <FaInstagram className="h-5 w-5" />
+                                    <FaTwitter className="h-5 w-5" />
                                 </a>
                             </div>
                         </motion.div>

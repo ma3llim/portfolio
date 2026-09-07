@@ -1,4 +1,4 @@
-import { FaArrowUp, FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaArrowUp, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Container from "./Container";
 import { Link } from "react-scroll";
@@ -38,15 +38,14 @@ const Footer = () => {
                             >
                                 <FaGithub className="h-5 w-5" />
                             </a>
-
                             <a
-                                href="https://www.instagram.com/ma_3llim_007/"
+                                href="https://x.com/Ma_3llim_007"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Instagram"
+                                aria-label="X/Twitter"
                                 className="text-slate-400 transition-colors duration-300 hover:text-white"
                             >
-                                <FaInstagram className="h-5 w-5" />
+                                <FaTwitter className="h-5 w-5" />
                             </a>
                         </div>
                         <p className="text-sm md:text-base px-4">&copy; {new Date().getFullYear()} Mohd Sameer. All Rights Reserved.</p>
