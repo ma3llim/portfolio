@@ -46,3 +46,24 @@
     animation: wave 2s infinite;
     transform-origin: 70% 70%;
 }
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #4f46e5 transparent;
+}
