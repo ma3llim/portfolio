@@ -3,6 +3,7 @@ import Container from "./Container";
 import userAvatar from "../assets/userAvatar.webp";
 import { FaCloudDownloadAlt, FaArrowRight } from "react-icons/fa";
 import { resume, socialLinks } from "../constants/app";
+import { Link } from "react-scroll";
 
 const Hero = () => {
     return (
@@ -35,13 +36,16 @@ const Hero = () => {
                                 well-structured web applications.
                             </p>
                             <div className="mt-7 flex flex-wrap items-center gap-4">
-                                <a
+                                <Link
+                                    to="projects"
                                     href="#projects"
+                                    smooth={true}
+                                    duration={500}
                                     className="group inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 font-semibold text-white shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-indigo-500"
                                 >
                                     View My Work
                                     <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-                                </a>
+                                </Link>
                                 <a
                                     href={resume}
                                     target="_blank"
