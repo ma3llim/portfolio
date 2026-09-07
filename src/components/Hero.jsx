@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import Container from "./Container";
 import userAvatar from "../assets/userAvatar.webp";
-import { FaCloudDownloadAlt, FaGithub, FaInstagram, FaLinkedin, FaArrowRight, FaWhatsapp, FaTwitter } from "react-icons/fa";
-const resume = "https://res.cloudinary.com/mohdsameer/image/upload/v1788764758/mohd_sameer_resume.pdf";
+import { FaCloudDownloadAlt, FaArrowRight } from "react-icons/fa";
+import { resume, socialLinks } from "../constants/app";
 
 const Hero = () => {
     return (
@@ -56,42 +56,22 @@ const Hero = () => {
                             <div className="mt-8 flex items-center gap-5">
                                 <span className="text-sm text-slate-500">Connect</span>
                                 <span className="h-px w-8 bg-slate-700" />
-                                <a
-                                    href="https://www.linkedin.com/in/mohdsameer-dev/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="LinkedIn"
-                                    className="text-slate-400 transition-colors duration-300 hover:text-white"
-                                >
-                                    <FaLinkedin className="h-5 w-5" />
-                                </a>
-                                <a
-                                    href="https://wa.me/+919885191161"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="WhatsApp"
-                                    className="text-slate-400 transition-colors duration-300 hover:text-white"
-                                >
-                                    <FaWhatsapp className="h-5 w-5" />
-                                </a>
-                                <a
-                                    href="https://github.com/ma3llim/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="GitHub"
-                                    className="text-slate-400 transition-colors duration-300 hover:text-white"
-                                >
-                                    <FaGithub className="h-5 w-5" />
-                                </a>
-                                <a
-                                    href="https://x.com/Ma_3llim_007"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="X/Twitter"
-                                    className="text-slate-400 transition-colors duration-300 hover:text-white"
-                                >
-                                    <FaTwitter className="h-5 w-5" />
-                                </a>
+                                {socialLinks.map((social) => {
+                                    const Icon = social.icon;
+
+                                    return (
+                                        <a
+                                            key={social.name}
+                                            href={social.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={social.ariaLabel}
+                                            className="text-slate-400 transition-colors duration-300 hover:text-white"
+                                        >
+                                            <Icon className="h-5 w-5" />
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </motion.div>
                         <motion.div

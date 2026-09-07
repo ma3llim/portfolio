@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { CiFileOn } from "react-icons/ci";
 import { FaBriefcase, FaEnvelope, FaGlobe, FaHome, FaTools, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
-const resume = "https://res.cloudinary.com/mohdsameer/image/upload/v1788764758/mohd_sameer_resume.pdf";
+import { resume } from "../constants/app";
 
 const HeaderModel = ({ isOpen, onClose }) => {
     const navigationItems = [

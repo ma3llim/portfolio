@@ -2,6 +2,7 @@ import { FaArrowUp, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } f
 import { FaXTwitter } from "react-icons/fa6";
 import Container from "./Container";
 import { Link } from "react-scroll";
+import { socialLinks } from "../constants/app";
 
 const Footer = () => {
     return (
@@ -11,42 +12,22 @@ const Footer = () => {
                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-white/10 via-white/50 to-white/10 rounded" />
                     <div className="py-8 lg:pt-8 lg:pb-0 space-y-6 text-center flex flex-col lg:flex-row justify-between">
                         <div className="flex flex-wrap justify-center gap-4">
-                            <a
-                                href="https://www.linkedin.com/in/mohdsameer-dev/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="LinkedIn"
-                                className="text-slate-400 transition-colors duration-300 hover:text-white"
-                            >
-                                <FaLinkedin className="h-5 w-5" />
-                            </a>
-                            <a
-                                href="https://wa.me/+919885191161"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="WhatsApp"
-                                className="text-slate-400 transition-colors duration-300 hover:text-white"
-                            >
-                                <FaWhatsapp className="h-5 w-5" />
-                            </a>
-                            <a
-                                href="https://github.com/ma3llim/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="GitHub"
-                                className="text-slate-400 transition-colors duration-300 hover:text-white"
-                            >
-                                <FaGithub className="h-5 w-5" />
-                            </a>
-                            <a
-                                href="https://x.com/Ma_3llim_007"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="X/Twitter"
-                                className="text-slate-400 transition-colors duration-300 hover:text-white"
-                            >
-                                <FaTwitter className="h-5 w-5" />
-                            </a>
+                            {socialLinks.map((social) => {
+                                const Icon = social.icon;
+
+                                return (
+                                    <a
+                                        key={social.name}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={social.ariaLabel}
+                                        className="text-slate-400 transition-colors duration-300 hover:text-white"
+                                    >
+                                        <Icon className="h-5 w-5" />
+                                    </a>
+                                );
+                            })}
                         </div>
                         <p className="text-sm md:text-base px-4">&copy; {new Date().getFullYear()} Mohd Sameer. All Rights Reserved.</p>
                     </div>

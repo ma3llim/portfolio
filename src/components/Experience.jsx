@@ -27,7 +27,7 @@ const TimelineItem = ({ title, company, date, description }) => (
                 </div>
                 <span className="w-fit rounded-md border border-slate-800 bg-slate-900 px-2.5 py-1 text-xs font-medium text-slate-400">{date}</span>
             </div>
-            <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-400">{description}</p>
+            <p className="mt-4 text-sm leading-6 text-slate-400">{description}</p>
         </article>
     </div>
 );
