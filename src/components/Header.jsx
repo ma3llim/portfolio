@@ -12,7 +12,7 @@ const Header = () => {
                 <Container>
                     <div className="grid grid-cols-2 items-center">
                         <Link to="home" href="#home" smooth={true} duration={500} className="w-[160px] h-[40px] flex items-center cursor-pointer">
-                            <img className="w-[250px] h-[150px] object-contain" src="logo.svg" alt="sameerfolio Logo" />
+                            <img className="w-[250px] h-[150px] object-contain" src="logo.svg" alt="Mohd Sameer Logo" />
                         </Link>
                         <nav className="flex items-center justify-end gap-6">
                             <ul className="hidden md:flex items-center gap-6 text-lg">

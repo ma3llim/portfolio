@@ -1,10 +1,13 @@
-# Sameerfolio
-![sameerfolio screenshot](images/mohd-sameer-portfolio.png)
+# Portfolio
+
+![Portfolio screenshot](images/mohd-sameer-portfolio.png)
 
 ## Overview
+
 This is a personal developer portfolio built to showcase my skills, projects, education, and contact details in a clean and modern interface. It highlights who I am, what I’ve built, and how to get in touch — all in one smooth, responsive, and interactive web application.
 
 ## Features
+
 - Responsive design optimized for all devices
 - Smooth scrolling navigation
 - project showcase section
@@ -13,24 +16,23 @@ This is a personal developer portfolio built to showcase my skills, projects, ed
 - Contact form for easy communication
 - Professional and modern UI
 
-
 ## Technologies Used
 
 - **Frontend:** React.js
 - **Styling:** Tailwind CSS
 - **Icons:** React Icons
-- **Fonts:** Google Fonts 
+- **Fonts:** Google Fonts
 - **Routing:** Scroll-smooth navigation
 - **Components:** Modular and reusable structure
 
-
 ## Installation
+
 To set up the project locally, follow these steps:
 
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/ma3llim/sameerfolio.git
+git clone https://github.com/ma3llim/portfolio
 cd your-portfolio
 ```
 
@@ -76,6 +78,7 @@ If you want to contribute, fix a bug, or add a feature, you’re welcome to open
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
+
 - React.js: For building dynamic and efficient user interfaces
 - TailwindCSS: For utility-first, responsive, and clean styling
 - React Icons: For easily integrating scalable icons
