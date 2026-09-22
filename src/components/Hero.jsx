@@ -38,7 +38,6 @@ const Hero = () => {
                             <div className="mt-7 flex flex-wrap items-center gap-4">
                                 <Link
                                     to="projects"
-                                    href="#projects"
                                     smooth={true}
                                     duration={500}
                                     className="group inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 font-semibold text-white shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-indigo-500"
