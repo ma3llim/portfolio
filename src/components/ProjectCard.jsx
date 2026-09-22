@@ -67,7 +67,7 @@ const ProjectCard = ({ project }) => {
                                     return (
                                         <span
                                             key={technology.name}
-                                            className="inline-flex items-center gap-1.5 rounded-md border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs font-medium text-slate-300"
+                                            className="inline-flex items-center gap-1.5 rounded-md border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs font-medium text-slate-300 select-none cursor-default"
                                         >
                                             <Icon className="h-3.5 w-3.5 text-indigo-400" />
                                             {technology.name}

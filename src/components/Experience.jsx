@@ -7,7 +7,7 @@ const data = {
             company: "ve.ai",
             date: "Dec 2025 - Jul 2026",
             description:
-                "Worked in a fast-paced startup environment, primarily focused on frontend and UI development. Implemented user interfaces from product requirements and designs, integrated REST APIs, handled frontend functionality and API responses, resolved UI and functional issues, and refactored existing code to support changing requirements and product workflows.",
+                "Frontend Developer with 7 months of professional experience building responsive and reusable React interfaces, integrating REST APIs and WebSockets, implementing OAuth authentication and form validation, and developing dynamic, API-driven application workflows.",
         },
     ],
 };
