@@ -27,13 +27,13 @@ const Hero = () => {
                                 <span className="h-px w-10 bg-indigo-400" />
                                 <span className="text-xs font-semibold tracking-[0.2em] text-indigo-300">JAVA FULL STACK DEVELOPER</span>
                             </div>
-                            <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-                                Building reliable
-                                <span className="block bg-gradient-to-r from-indigo-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">software for the web.</span>
+                            <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-4xl lg:text-5xl">
+                                Building full-stack
+                                <span className="block bg-gradient-to-r from-indigo-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">applications with Java and AI.</span>
                             </h1>
                             <p className="mt-5 max-w-xl text-base leading-7 text-slate-300 sm:text-[17px]">
-                                I build full-stack applications with Java, Spring Boot, and React, combining practical frontend experience with hands-on backend development to create reliable,
-                                well-structured web applications.
+                                I build full-stack applications with Java, Spring Boot, and React, and develop AI-powered applications using Spring AI, RAG, LLM integration, embeddings, and document
+                                intelligence.
                             </p>
                             <div className="mt-7 flex flex-wrap items-center gap-4">
                                 <Link
@@ -100,7 +100,7 @@ const Hero = () => {
                                     <img src={userAvatar} alt="Portrait of Mohd Sameer" className="h-60 w-60 rounded-[1.35rem] object-cover sm:h-72 sm:w-72 lg:h-80 lg:w-80" />
                                     <div className="absolute inset-x-2 bottom-2 rounded-b-[1.35rem] bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent p-5 pt-16">
                                         <p className="text-sm font-medium text-slate-300">Software Developer</p>
-                                        <p className="mt-1 text-base font-semibold sm:text-lg">Java • Spring Boot • React</p>
+                                        <p className="mt-1 text-base font-semibold sm:text-lg">Java • Spring Boot • Spring AI • React</p>
                                     </div>
                                 </div>
                                 <div className="absolute -bottom-4 -left-3 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/95 px-3 py-2 shadow-xl backdrop-blur-md sm:-bottom-5 sm:-left-5 sm:px-4 sm:py-2.5">
