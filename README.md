@@ -1,7 +1,5 @@
 # Portfolio
 
-![Portfolio screenshot](images/mohd-sameer-portfolio.png)
-
 ## Overview
 
 This is a personal developer portfolio built to showcase my skills, projects, education, and contact details in a clean and modern interface. It highlights who I am, what I’ve built, and how to get in touch — all in one smooth, responsive, and interactive web application.

@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import Container from "./Container";
 import userAvatar from "../assets/userAvatar.webp";
 import { FaCloudDownloadAlt, FaArrowRight } from "react-icons/fa";
-import { resume, socialLinks } from "../constants/app";
+import { socialLinks } from "../constants/app";
 import { Link } from "react-scroll";
+import resume from "../assets/Mohd_Sameer.pdf";
 
 const Hero = () => {
     return (

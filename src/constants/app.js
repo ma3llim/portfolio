@@ -1,7 +1,5 @@
 import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
-export const resume = "https://res.cloudinary.com/mohdsameer/image/upload/v1788764758/mohd_sameer_resume.pdf";
-
 export const socialLinks = [
     {
         name: "LinkedIn",
